@@ -1,8 +1,19 @@
 <?php
 
 class Category extends AppModel {
-	public $belongsTo = 'City';
-	// public $hasOne = 'User';
+	public $belongsTo = array(
+			'City' => array(
+	            'className'  => 'City',
+	            // 'conditions' => array('Recipe.approved' => '1'),
+	            // 'order'      => 'Recipe.created DESC'
+	        ),
+	        'User' => array(
+	            'className'  => 'User',
+	            // 'conditions' => array('Recipe.approved' => '1'),
+	            // 'order'      => 'Recipe.created DESC'
+	        )
+		);
+
 	public $hasMany = array(
 	        'Product' => array(
 	            'className'  => 'Product',

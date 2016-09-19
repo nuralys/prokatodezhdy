@@ -23,7 +23,7 @@
                     Новости и статьи
                 </a>
                 <div class="header-item__search search">
-                    <form action="">
+                    <form action="/products/search" method="get">
                         <input placeholder="Поиск по сайту" class="search-input" type="text" name="q">
                         <div class="search-button">
                             <button type="submit"></button>
