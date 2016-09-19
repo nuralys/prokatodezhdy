@@ -31,6 +31,9 @@
             <div class="product-slider-name button product-slider-name--accessories">
                 Аксессуары
             </div>
+            <div class="product-description__podelitsia-soc-seti">
+                Мы в социальных сетях:
+            </div> 
         </div>
         <div class="product-slider-content">
             <div class="product-slider-content__item active">
@@ -40,58 +43,70 @@
                         <div class="slider_item_img">
                             <img src="/img/product/thumbs/<?=$item['img']?>" alt="">
                         </div>
+                        <div class="product-description">
+                            <div class="product-description__name">
+                                Название платья
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <select name="" id="" class="product-description__select">
+                                <option value="">Выбрать срок аренды</option>
+                                <option value="">год</option>
+                                <option value="">10 лет</option>
+                            </select>
+                            <div class="product-description__item product-price">
+                                Цена: <span>3000 KZT</span> 
+                            </div>
+                            <div class="product-description__item product-size">
+                               Размеры:  36, 38, 40, 42, 44
+                            </div>
+                            <div class="product-description__item product-bron">
+                               Бронь:  1000 KZT
+                            </div>
+                            <div class="product-description__podelitsia">
+                                Расскажите о нас друзьям
+                            </div>
+                      </div>
                     </div>
                    <?php endforeach ?>
                 </div>
             </div>
             <div class="product-slider-content__item">
-                <div class="slider-product" >
+               <div class="slider-product" >
+                <?php foreach($data['Product'] as $item): ?>
                     <div class="slider__item">
                         <div class="slider_item_img">
-                            <img src="img/product.jpg" alt="">
+                            <img src="/img/product/thumbs/<?=$item['img']?>" alt="">
                         </div>
+                        <div class="product-description">
+                            <div class="product-description__name">
+                                Название платья
+                            </div>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                            <select name="" id="" class="product-description__select">
+                                <option value="">Выбрать срок аренды</option>
+                                <option value="">год</option>
+                                <option value="">10 лет</option>
+                            </select>
+                            <div class="product-description__item product-price">
+                                Цена: <span>3000 KZT</span> 
+                            </div>
+                            <div class="product-description__item product-size">
+                               Размеры:  36, 38, 40, 42, 44
+                            </div>
+                            <div class="product-description__item product-bron">
+                               Бронь:  1000 KZT
+                            </div>
+                            <div class="product-description__podelitsia">
+                                Расскажите о нас друзьям
+                            </div>
+                      </div>
                     </div>
-                    <div class="slider__item">
-                        <div class="slider_item_img">
-                            <img src="img/product.jpg" alt="">
-                        </div>
-                    </div>
-                    <div class="slider__item">
-                        <div class="slider_item_img">
-                            <img src="img/product.jpg" alt="">
-                        </div>
-                    </div>
+                   <?php endforeach ?>
                 </div>
             </div>
         </div>
     </div>
-    <div class="product-description">
-          <div class="product-description__podelitsia-soc-seti">
-              Мы в социальных сетях:
-                
-          </div>  
-          <div class="product-description__name">
-              Название платья
-          </div>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-          <select name="" id="" class="product-description__select">
-              <option value="">Выбрать срок аренды</option>
-              <option value="">год</option>
-              <option value="">10 лет</option>
-          </select>
-          <div class="product-description__item product-price">
-              Цена: <span>3000 KZT</span> 
-          </div>
-          <div class="product-description__item product-size">
-             Размеры:  36, 38, 40, 42, 44
-          </div>
-          <div class="product-description__item product-bron">
-             Бронь:  1000 KZT
-          </div>
-          <div class="product-description__podelitsia">
-              Расскажите о нас друзьям
-          </div>
-    </div>
+    
     <div class="hypercomment"></div>
     <div class="o-nas">
         <div class="service-index_title">О нас</div>
