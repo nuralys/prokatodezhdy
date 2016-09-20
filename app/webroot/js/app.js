@@ -114,4 +114,21 @@ jQuery(document).ready(function() {
         $(this).addClass('active').siblings().removeClass('active');
         $('.product-slider-content').find('.product-slider-content__item').eq(itemCount).addClass('active').siblings().removeClass('active');
     });
+
+
+ $('.product_button-item').click(function(){
+ 	
+ 	if($(this).hasClass('active')){
+ 		$(this).removeClass('active');
+
+ 		$(this).children('.city-list').addClass('active');
+ 	}
+ 	else {
+ 		$(this).siblings().removeClass('active');
+ 		$(this).siblings().children('.city-list').removeClass('active');
+ 		$(this).children('.city-list').addClass('active');
+ 		$(this).addClass('active');
+ 	}
+ 	
+ });
 });

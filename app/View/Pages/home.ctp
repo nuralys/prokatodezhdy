@@ -1,40 +1,102 @@
 <div class="big-slogan">
     <h1><?=$page['Page']['h1']?></h1>
 </div>
+
 <!-- <div class="select_city-container">
     <form action="">
-        <select class=" select ">
+        <select class="select  svadebnoe-plate">
             <option value="">Выберите город</option>
             <option value="">Астана</option>
             <option value="">Алматы</option>
             <option value="">Актау</option> 
         </select>
+
+        <select class="select  vechernie_platia ">
+            <option value="">Выберите город</option>
+            <option value="">Астана</option>
+            <option value="">Алматы</option>
+            <option value="">Актау</option> 
+        </select>
+        <select class="select  muzhskie_kostium">
+            <option value="">Выберите город</option>
+            <option value="">Астана</option>
+            <option value="">Алматы</option>
+            <option value="">Актау</option> 
+        </select>
+        <select class="select  detskaia_odezhda">
+            <option value="">Выберите город</option>
+            <option value="">Астана</option>
+            <option value="">Алматы</option>
+            <option value="">Актау</option> 
+        </select>
+
     </form>
-</div> -->
+</div>  -->
 <ul class="product_button">
     
     <li class="product_button-item product_button-item--svadebnoe_plate">
-        <a href="/city/astana/svadebnye_platjya"><div class="product_button-name ">
-            свадебные платья
-        </div>  </a>
+        <!-- <a href="/city/astana/svadebnye_platjya">
+        </a> -->
+        <div class="product_button-name ">
+                свадебные платья
+        </div>  
+        <ul class="city-list">
+            <div class="city-list-head">
+                Выберите город
+            </div>
+           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+        </ul>
     </li>
   
-    <a href="/category/svadebnye_platjya">
     <li class="product_button-item product_button-item--vechernie_platia">
         <div class="product_button-name ">
             вечерние платья
         </div>
+        <ul class="city-list">
+        <div class="city-list-head">
+            Выберите город
+        </div>
+           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+        </ul>
     </li>
-    </a>
+
     <li class="product_button-item product_button-item--muzhskie_kostium">
         <div class="product_button-name ">
             мужские костюмы
         </div>
+        <ul class="city-list">
+            <div class="city-list-head">
+                Выберите город
+            </div>
+           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+        </ul>
     </li>
     <li class="product_button-item product_button-item--detskaia_odezhda">
         <div class="product_button-name ">
             детская одежда
         </div>
+        <ul class="city-list">
+            <div class="city-list-head">
+                Выберите город
+            </div>
+           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
+            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+        </ul>
     </li>
 </ul>
 <div class="news-stati">
