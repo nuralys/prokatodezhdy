@@ -9,10 +9,11 @@ class PagesController extends AppController {
 		$page = $this->Page->findById(1);
 		// debug($page);
 		$first_news = $this->News->find('first', array(
-			'order' => array('News.id' => 'desc')
+			'order' => array('News.date' => 'desc')
 		));
 		$other_news = $this->News->find('all', array(
-			'order' => array('News.id' => 'desc')
+			'order' => array('News.date' => 'desc'),
+			'limit' => 5
 		));
 		$shift_other_news = array_shift($other_news);
 		

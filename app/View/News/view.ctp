@@ -7,7 +7,7 @@
             <?php echo $data['News']['title']; ?>
         </div> 
         <div class="news-date">
-            Дата публикацфии: <?php echo $this->Time->format($data['News']['date'], '%d.%m.%Y', 'invalid'); ?>
+            Дата публикации: <?php echo $this->Time->format($data['News']['date'], '%d.%m.%Y', 'invalid'); ?>
         </div>
         <?php echo $data['News']['body']; ?>
     </div>
