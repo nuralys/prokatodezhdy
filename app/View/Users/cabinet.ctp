@@ -29,18 +29,20 @@
                     <div class="general-information">
                         <div class="general-information__title">
                           Общая информация
+                       </div>
                         <?php 
-echo $this->Form->create('User', array('type' => 'file'));?>
-<div class="general-information-input_container login_icon">
-<?php
-echo $this->Form->input('img', array('label'=>'Изображение', 'class' =>'','type' => 'file'));
-echo $this->Form->input('title', array('label'=>'','placeholder' => 'Название', 'class' =>'general-information-input input'));
-echo $this->Form->input('phone', array('label' => 'Телефон', 'class' => ''));
-echo $this->Form->input('about', array('label' => 'О компании', 'class' => ''));
-echo $this->Form->input('conditions', array('label' => 'Условия:',));
-echo $this->Form->input('instagram', array('label' => 'instagram', 'class' => ''));
-echo $this->Form->input('vk', array('label' => 'vk:', 'class' => ''));
-echo $this->Form->end('Редактировать');
-?>
-                    </div>
-                </div>
+                        echo $this->Form->create('User', array('type' => 'file'));?>
+                        <div class="general-information-input_container ">
+                            <?php
+                            echo $this->Form->input('img', array('label'=>'Изображение', 'class' =>'inputs','type' => 'file'));
+                            echo $this->Form->input('title', array('label'=>'','placeholder' => 'Название', 'class' =>'inputs general-information-input input'));
+                            echo $this->Form->input('phone', array('label' => '', 'class' => 'inputs'));
+                            echo $this->Form->input('about', array('label' => '', 'class' => 'general-information-textarea feedback-textarea'));
+                            echo $this->Form->input('conditions', array('label' => '', 'class' => 'general-information-textarea feedback-textarea'));
+                            echo $this->Form->input('instagram', array('label' => '', 'class' => 'inputs'));
+                            echo $this->Form->input('vk', array('label' => '', 'class' => 'inputs'));
+                            echo $this->Form->end('Редактировать',array('class' => 'button'));
+                            ?>
+                        </div>
+                     </div>
+               </div>
