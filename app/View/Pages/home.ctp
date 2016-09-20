@@ -15,7 +15,7 @@
 <ul class="product_button">
     
     <li class="product_button-item product_button-item--svadebnoe_plate">
-        <a href="/category/svadebnye_platjya"><div class="product_button-name ">
+        <a href="/city/astana/svadebnye_platjya"><div class="product_button-name ">
             свадебные платья
         </div>  </a>
     </li>

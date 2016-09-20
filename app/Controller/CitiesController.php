@@ -14,9 +14,11 @@ class CitiesController extends AppController{
 		// debug($this->request->params['pass'][1]);
 		if(isset($this->request->params['pass'][1]) && !empty($this->request->params['pass'][1])){
 			$data = $this->City->Category->findByAlias($this->request->params['pass'][1]);
-			// debug($data);
+			$user_id = $data['Category']['user_id'];
+			// debug($user_id);
+			$ui = $this->City->Category->User->findById($user_id);
 		}
-		return $this->set(compact('data'));
+		return $this->set(compact('data', 'ui'));
 	}
 
 	public function view($alias){

@@ -86,9 +86,25 @@ class ProductsController extends AppController{
 			throw new NotFoundException('Такой страницы нет...');
 		}
 		$data = $this->Product->findById($id);
+		$user_id = $data['Category']['user_id'];
+		$ui = $this->Product->Category->User->findById($user_id);
+
 		$title_for_layout = $data['Product']['title'];
 
-		$this->set(compact('data', 'title_for_layout'));
+		$this->set(compact('data', 'title_for_layout', 'ui'));
+	}
+
+	public function search(){
+		$search = !empty($_GET['q']) ? $_GET['q'] : null ;
+		if( is_null($search)){
+			return $this->set('search_res', 'Введите поисковый запрос');
+		}
+		$search_res = $this->Product->find('all', array(
+			'conditions' => array('Product.title LIKE' => '%'.$search.'%')
+			));
+		$title_for_layout = 'Поиск';
+		$this->set(compact('search_res', 'title_for_layout'));
+		
 	}
 
 	

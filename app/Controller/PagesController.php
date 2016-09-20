@@ -8,10 +8,10 @@ class PagesController extends AppController {
 	public function home(){
 		$page = $this->Page->findById(1);
 		
-		$title_for_layout = 'Прокат одежды';
-		$meta['keywords'] = 'keywords';
-		$meta['description'] = 'description';
-		$this->set(compact('title_for_layout', 'page'));
+		$title_for_layout = $page['Page']['title'];
+		$meta['keywords'] = $page['Page']['keywords'];
+		$meta['description'] = $page['Page']['description'];
+		$this->set(compact('title_for_layout', 'page', 'meta'));
 	}
 
 	public function admin_index(){
