@@ -25,7 +25,7 @@
             <div class="news-item__img">
                 <img src="/img/news/thumbs/<?=$item['News']['img']?>" alt="<?=$item['News']['title']?>">
             </div>
-            <a href="/news/view/<?=$item['News']['id']?>" class="news-item__title"><?=$item['News']['title']?>
+            <a href="/news/<?=$item['News']['alias']?>" class="news-item__title"><?=$item['News']['title']?>
             </a>
         </div>
         <?php endforeach ?>

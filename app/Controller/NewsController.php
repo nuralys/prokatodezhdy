@@ -78,13 +78,18 @@ class NewsController extends AppController{
 	}
 
 
-	public function view($id){
-		if(is_null($id) || !(int)$id || !$this->News->exists($id)){
+	public function view($alias){
+
+		
+
+		$data = $this->News->findByAlias($alias);
+
+		if(!$data){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->News->findById($id);
+
 		$other_news = $this->News->find('all', array(
-			'conditions' => array('News.id !=' => $id)
+			'conditions' => array('News.alias !=' => $alias)
 		));
 		$title_for_layout = $data['News']['title'];
 

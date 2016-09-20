@@ -7,7 +7,7 @@
 	Router::connect('/category/*', array('controller' => 'categories', 'action' => 'view'));
 	Router::connect('/product/*', array('controller' => 'products', 'action' => 'view'));
 	Router::connect('/search/*', array('controller' => 'products', 'action' => 'search'));
-	Router::connect('/news/view/*', array('controller' => 'news', 'action' => 'view'));
+	Router::connect('/news/*', array('controller' => 'news', 'action' => 'view'));
 	Router::connect('/news', array('controller' => 'news', 'action' => 'index'));
 	Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
 /**

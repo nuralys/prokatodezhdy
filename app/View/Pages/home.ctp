@@ -1,6 +1,5 @@
 <div class="big-slogan">
-    Сайт рыбатекст поможет дизайнеру, <br>
-верстальщику, вебмастеру сгенерировать несколько абзацев
+    <h1><?=$page['Page']['h1']?></h1>
 </div>
 <!-- <div class="select_city-container">
     <form action="">
@@ -40,79 +39,37 @@
 </ul>
 <div class="news-stati">
     <div class="news-stati-title">
-        новости и статьи
+        Новости и статьи
     </div>
     <div class="news-big">
         <div class="date">
             
-            <div class="date_big">28</div>
+            <div class="date_big"><?php echo $this->Time->format($first_news['News']['date'], '%d', 'invalid'); ?></div>
             
-            <span>августа</span>
-            <span>2016</span>
+            <span><?php echo $this->Time->format($first_news['News']['date'], '%m', 'invalid'); ?></span>
+            <span><?php echo $this->Time->format($first_news['News']['date'], '%Y', 'invalid'); ?></span>
         </div>
         <div class="news-big__img">
-            <img src="img/big_news.jpg" alt="">
+            <img src="/img/news/<?=$first_news['News']['img']?>" alt="<?=$first_news['News']['title']?>">
         </div>
-        <a href="" class="news-big__title">Lorem Ipsum is simply dummy text of the printing and 
-typesetting industry.</a>
+        <a href="/news/<?=$first_news['News']['alias']?>" class="news-big__title"><?=$first_news['News']['title']?></a>
     </div>
     <div class="news-item-list">
+        <?php foreach($other_news as $item): ?>
         <div class="news-item">
             <div class="date">
-                <div class="date_big">28</div>
+                <div class="date_big"><?php echo $this->Time->format($item['News']['date'], '%d', 'invalid'); ?></div>
                 
-                <span>августа</span>
-                <span>2016</span>
+                <span><?php echo $this->Time->format($item['News']['date'], '%m', 'invalid'); ?></span>
+                <span><?php echo $this->Time->format($item['News']['date'], '%Y', 'invalid'); ?></span>
             </div>
             <div class="news-item__img">
-                <img src="img/news-item1.jpg" alt="">
+                <img src="/img/news/thumbs/<?=$item['News']['img']?>" alt="<?=$item['News']['title']?>">
             </div>
-            <a href="" class="news-item__title">Lorem Ipsum is simply dummy text of the printing and 
-            typesetting industry.
+            <a href="/news/<?=$item['News']['alias']?>" class="news-item__title"><?=$item['News']['title']?>
             </a>
         </div>
-        <div class="news-item">
-            <div class="date">
-                <div class="date_big">28</div>
-                
-                <span>августа</span>
-                <span>2016</span>
-            </div>
-            <div class="news-item__img">
-                <img src="img/news-item1.jpg" alt="">
-            </div>
-            <a href="" class="news-item__title">Lorem Ipsum is simply dummy text of the printing and 
-            typesetting industry.
-            </a>
-        </div>
-        <div class="news-item">
-            <div class="date">
-                <div class="date_big">28</div>
-                
-                <span>августа</span>
-                <span>2016</span>
-            </div>
-            <div class="news-item__img">
-                <img src="img/news-item1.jpg" alt="">
-            </div>
-            <a href="" class="news-item__title">Lorem Ipsum is simply dummy text of the printing and 
-            typesetting industry.
-            </a>
-        </div>
-        <div class="news-item">
-            <div class="date">
-                <div class="date_big">28</div>
-                
-                <span>августа</span>
-                <span>2016</span>
-            </div>
-            <div class="news-item__img">
-                <img src="img/news-item1.jpg" alt="">
-            </div>
-            <a href="" class="news-item__title">Lorem Ipsum is simply dummy text of the printing and 
-            typesetting industry.
-            </a>
-        </div>
+    <?php endforeach ?>
     </div>
 </div>
 <div class="service-index">
@@ -135,6 +92,6 @@ typesetting industry.</a>
     </div>
     <div class="service-index_text">
         <div class="service-index_title">О сервисе</div>
-        <p><span>Название сервиса </span>- popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+        <?php echo $page['Page']['body'] ?>
     </div>
 </div>
