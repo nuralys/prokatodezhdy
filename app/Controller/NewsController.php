@@ -12,7 +12,13 @@ class NewsController extends AppController{
 	public function admin_add(){
 		if($this->request->is('post')){
 			$this->News->create();
-			$data = $this->request->data['News'];
+
+			$slug = Inflector::slug($this->request->data['News']['title']);
+			$slug = mb_strtolower($slug);
+			$data[] = $this->request->data['News'];
+			$data[] = array('alias'=>$slug);
+			$data = array_merge($data[0],$data[1]);
+
 			// debug($data);
 			 if(!$data['img']['name']){
 			 	unset($data['img']);
@@ -71,24 +77,29 @@ class NewsController extends AppController{
 		
 		$title_for_layout = 'Новости';
 		$data = $this->News->find('all', array(
-			'order' => array('News.id' => 'desc')
+			'order' => array('News.date' => 'desc')
 		));
 		// debug($news);
 		$this->set(compact('data', 'title_for_layout'));
 	}
 
 
-	public function view($id){
-		if(is_null($id) || !(int)$id || !$this->News->exists($id)){
+	public function view($alias){
+		$data = $this->News->findByAlias($alias);
+
+		if(!$data){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->News->findById($id);
+
 		$other_news = $this->News->find('all', array(
-			'conditions' => array('News.id !=' => $id)
+			'conditions' => array('News.alias !=' => $alias),
+			'order' => array('News.date' => 'desc')
 		));
 		$title_for_layout = $data['News']['title'];
+		$meta['keywords'] = $data['News']['keywords'];
+		$meta['description'] = $data['News']['description'];
 
-		$this->set(compact('data', 'title_for_layout', 'other_news'));
+		$this->set(compact('data', 'title_for_layout', 'other_news', 'meta'));
 	}
 
 	

@@ -107,5 +107,17 @@ class ProductsController extends AppController{
 		
 	}
 
+	public function edit($id){
+		if(!$this->Auth->user()){
+			return $this->redirect('/users/login');
+		}
+
+		$data = $this->Auth->user();
+		$id = $data['id'];
+		$data = $this->User->find('first', array(
+			'conditions' => array('User.id' => $id),
+		'recursive' => -1));
+	}
+
 	
 }

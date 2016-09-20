@@ -7,7 +7,7 @@
             <?php echo $data['News']['title']; ?>
         </div> 
         <div class="news-date">
-            Дата публикацфии: <?php echo $this->Time->format($data['News']['date'], '%d.%m.%Y', 'invalid'); ?>
+            Дата публикации: <?php echo $this->Time->format($data['News']['date'], '%d.%m.%Y', 'invalid'); ?>
         </div>
         <?php echo $data['News']['body']; ?>
     </div>
@@ -25,7 +25,7 @@
             <div class="news-item__img">
                 <img src="/img/news/thumbs/<?=$item['News']['img']?>" alt="<?=$item['News']['title']?>">
             </div>
-            <a href="/news/view/<?=$item['News']['id']?>" class="news-item__title"><?=$item['News']['title']?>
+            <a href="/news/<?=$item['News']['alias']?>" class="news-item__title"><?=$item['News']['title']?>
             </a>
         </div>
         <?php endforeach ?>

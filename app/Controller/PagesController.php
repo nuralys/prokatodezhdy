@@ -3,15 +3,24 @@
 
 class PagesController extends AppController {
 
-	public $uses = array('Page');
+	public $uses = array('Page', 'News');
 
 	public function home(){
 		$page = $this->Page->findById(1);
+		// debug($page);
+		$first_news = $this->News->find('first', array(
+			'order' => array('News.date' => 'desc')
+		));
+		$other_news = $this->News->find('all', array(
+			'order' => array('News.date' => 'desc'),
+			'limit' => 5
+		));
+		$shift_other_news = array_shift($other_news);
 		
 		$title_for_layout = $page['Page']['title'];
 		$meta['keywords'] = $page['Page']['keywords'];
 		$meta['description'] = $page['Page']['description'];
-		$this->set(compact('title_for_layout', 'page', 'meta'));
+		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news'));
 	}
 
 	public function admin_index(){

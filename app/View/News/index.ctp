@@ -16,7 +16,7 @@
             <div class="news-item__img">
                 <img src="/img/news/thumbs/<?=$item['News']['img']?>" alt="<?php echo $item['News']['title']; ?>">
             </div>
-            <a href="/news/view/<?=$item['News']['id']?>" class="news-item__title news-list__item-title">
+            <a href="/news/<?=$item['News']['alias']?>" class="news-item__title news-list__item-title">
                 <?php echo $item['News']['title']; ?>
             </a>
         </div> 
