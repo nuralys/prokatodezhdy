@@ -12,60 +12,30 @@ class CategoriesController extends AppController{
 	public function index(){
 		if(isset($this->request->params['pass'][1]) && !empty($this->request->params['pass'][1])){
 			
-			$city_id = $this->Category->City->find('first', array(
-				'conditions' => array('alias'=>$this->request->params['pass'][0]),
-				'fields' => 'City.id',
-				// 'recursive' => -1
-			));
-			// debug($city_id);
-			// $cat_id = $city_id['Category']['id'];
+			$cat_id = $this->Category->find('first', array(
+				'conditions' => array('Category.alias'=>$this->request->params['pass'][1]),
+				'recursive'=>-1));
+			$cat_id = $cat_id['Category']['id'];
+
+			$city_id = $this->Category->User->City->find('first', array(
+				'conditions' => array('City.alias'=>$this->request->params['pass'][0]),
+				'recursive'=>-1));
 			$city_id = $city_id['City']['id'];
-			// $this->Category->bindModel(array(
-			//     'hasAndBelongsToMany' => array(
-			//         'City' => array('conditions' => array('alias'=>$this->request->params['pass'][0]),
-			// 			'joinTable' => 'cities_categories',
-			//         )),
-			//     'hasMany' => array(
-			//         'Product' => array('conditions' => array(
-			//         	'Product.city_id'=>$city_id,
-			//         	'recursive' => -1
-			//         	//'Product.categor_id' => 
-			//         	)
-			//         )
-			//      ),
-			//     'hasMany' => array(
-			//         'Accessory' => array('conditions' => array('Accessory.city_id'=>$city_id))
-			//         )
-			//     )
-			    
-			// );
-			// $data2 = $this->Category->find('all');
-			
-			// debug($data2);
-			// die;
-			// $this->Category->bindModel(array(
-			//     'hasMany' => array(
-			//         'Product' => array('conditions' => array('Product.city_id'=>$city_id))
-			//         )
-			//     )
-			// );
-			// $product
-			$data = $this->Category->find('first', array(
-				'conditions' => array(
-					'Category.alias' => $this->request->params['pass'][1],
-					//'AND' => array('Product.city_id' => 2)
-					// 'Product.city_id' => $city_id,
-
-					),
-				// 'recursive' => -1
-
+			$user = $this->Category->User->find('first', array(
+				'conditions' => array('User.city_id'=>$city_id),
+				'AND' => array('User.category_id'=>$cat_id),
+				'recursive'=>-1));
+			$user_id = $user['User']['id'];
+			$products = $this->Category->User->Product->find('all', array(
+				'conditions' => array('Product.user_id'=>$user_id),
+				'recursive'=>-1
 			));
-			// debug($data);
-			$user_id = $data['Category']['user_id'];
-			// debug($user_id);
-			$ui = $this->Category->User->findById($user_id);
+			$accessories = $this->Category->User->Accessory->find('all', array(
+				'conditions' => array('Accessory.user_id'=>$user_id),
+				'recursive'=>-1
+			));
 		}
-		return $this->set(compact('data', 'ui'));
+		return $this->set(compact('products', 'accessories', 'user'));
 	}
 
 	public function view($alias){
