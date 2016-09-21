@@ -11,14 +11,14 @@
         <div class="magazine-img">
             <img src="/img/magazine.jpg" alt="">
         </div>   
-        <a href="tel:<?=$ui['User']['phone']?>" class="magazine-item magazine-item__phone">
-            <?=$ui['User']['phone']?>
+        <a href="tel:<?=$user['User']['phone']?>" class="magazine-item magazine-item__phone">
+            <?=$user['User']['phone']?>
         </a>   
         <div class="magazine-item magazine-item__address">
-           <?=$ui['User']['address']?>
+           <?=$user['User']['address']?>
         </div>
         <a href="" class="magazine-item magazine-item__maps">
-            <?=$ui['User']['map']?>
+            <?=$user['User']['map']?>
         </a>
     </div>
 </aside>
@@ -39,28 +39,28 @@
         <div class="product-slider-content">
             <div class="product-slider-content__item active">
                 <div class="slider-product" >
-                <?php foreach($data['Product'] as $item): ?>
+                <?php foreach($products as $item): ?>
                     <div class="slider__item">
                         <div class="slider_item_img">
-                            <img src="/img/product/thumbs/<?=$item['img']?>" alt="<?=$item['title']?>">
+                            <img src="/img/product/thumbs/<?=$item['Product']['img']?>" alt="<?=$item['Product']['title']?>">
                         </div>
                         <div class="product-description">
                               <div class="product-description__name">
-                                  <?=$item['title']?>
+                                  <?=$item['Product']['title']?>
                               </div>
-                              <?=$item['body']?>
+                              <?=$item['Product']['body']?>
                               
                               <div class="product-description__item product-price">
-                                  Цена (за сутки): <span><?=$item['price_day']?> KZT</span> 
+                                  Цена (за сутки): <span><?=$item['Product']['price_day']?> KZT</span> 
                               </div>
                               <div class="product-description__item product-price">
-                                  Цена (от 5 суток): <span><?=$item['price_lot_of_days']?> KZT</span> 
+                                  Цена (от 5 суток): <span><?=$item['Product']['price_lot_of_days']?> KZT</span> 
                               </div>
                               <div class="product-description__item product-size">
-                                 Размеры:  <?=$item['size']?>
+                                 Размеры:  <?=$item['Product']['size']?>
                               </div>
                               <div class="product-description__item product-bron">
-                                 Бронь:  <?=$item['book']?> KZT
+                                 Бронь:  <?=$item['Product']['book']?> KZT
                               </div>
                               <div class="product-description__podelitsia">
                                   Расскажите о нас друзьям
@@ -72,25 +72,25 @@
             </div>
             <div class="product-slider-content__item">
                 <div class="slider-product" >
-                <?php foreach($data['Accessory'] as $item): ?>
+                <?php foreach($accessories as $item): ?>
                     <div class="slider__item">
                         <div class="slider_item_img">
-                            <img src="/img/accessory/thumbs/<?=$item['img']?>" alt="<?=$item['title']?>">
+                            <img src="/img/accessory/thumbs/<?=$item['Accessory']['img']?>" alt="<?=$item['Accessory']['title']?>">
                         </div>
                         <div class="product-description">
                               <div class="product-description__name">
-                                  <?=$item['title']?>
+                                  <?=$item['Accessory']['title']?>
                               </div>
-                              <?=$item['body']?>
+                              <?=$item['Accessory']['body']?>
                              
                               <div class="product-description__item product-price">
-                                  Цена: <span><?=$item['price']?> KZT</span> 
+                                  Цена: <span><?=$item['Accessory']['price']?> KZT</span> 
                               </div>
                               <div class="product-description__item product-size">
-                                 Размеры:  <?=$item['size']?>
+                                 Размеры:  <?=$item['Accessory']['size']?>
                               </div>
                               <div class="product-description__item product-bron">
-                                 Бронь:  <?=$item['book']?> KZT
+                                 Бронь:  <?=$item['Accessory']['book']?> KZT
                               </div>
                               <div class="product-description__podelitsia">
                                   Расскажите о нас друзьям
@@ -105,13 +105,13 @@
     <div class="hypercomment"></div>
     <div class="o-nas">
         <div class="service-index_title">О компании</div>
-        <p><?= $this->Text->truncate(strip_tags($ui['User']['about']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+        <p><?= $this->Text->truncate(strip_tags($user['User']['about']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
     </div>
     <div class="uslovia-prokata">
         <div class="uslovia-prokata__title title">
             Условия проката
         </div>
-        <p><?= $this->Text->truncate(strip_tags($ui['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+        <p><?= $this->Text->truncate(strip_tags($user['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
     </div>
     
 </div>

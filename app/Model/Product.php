@@ -1,7 +1,13 @@
 <?php 
 
 class Product extends AppModel{
-	public $hasOne = 'Category';
+	// public $hasOne = array('Category','User');
+	public $belongsTo = array(
+		'User'=>array(
+			'className' => 'User'
+		),
+		
+	);
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',

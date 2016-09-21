@@ -1,7 +1,7 @@
 <?php 
 
 class Accessory extends AppModel{
-	public $belongsTo = 'Category';
+	public $belongsTo = 'User';
 	// public $recursive = -1;
 	public $validate = array(
 		'title' => array(

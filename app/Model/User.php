@@ -3,7 +3,25 @@
 App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 
 class User extends AppModel{
-	public $hasOne = 'Category';
+	public $belongsTo = array(
+		'Category'=>array(
+			'className' => 'Category'
+		),
+		'City' => array(
+	           'className'  => 'City',
+	           // 'joinTable' => 'cities_categories',
+	//   //           // 'conditions' => array('Recipe.approved' => '1'),
+	//   //           // 'order'      => 'Recipe.created DESC'
+	        ),
+	);
+	public $hasMany = array(
+	        'Product' => array(
+	            'className'  => 'Product',
+	        ),
+	        'Accessory' => array(
+	            'className'  => 'Accessory',
+	        ),
+	    );
 	public $validate = array(
 		
 		'password' =>  array(
