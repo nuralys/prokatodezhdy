@@ -172,28 +172,30 @@ class UsersController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			
-			$this->set(compact('id', 'data'));
+			$title_for_layout = 'Личный кабинет';
+			$this->set(compact('id', 'data', 'title_for_layout'));
 		}
 
 
 	}
 
-	public function category(){
+	public function catalog(){
 		if(!$this->Auth->user()){
 			return $this->redirect('/users/login');
 		}
 
 		$data = $this->Auth->user();
 		$id = $data['id'];
-		$data = $this->User->find('first', array(
-			'conditions' => array('User.id' => $id),
-		'recursive' => -1));
-		$category = $this->User->Category->find('first', array(
-			'conditions' => array('Category.user_id'=>$id)
-		));
-		// debug($category);
-		$this->set(compact('category'));
+		// $data = $this->User->find('first', array(
+		// 	'conditions' => array('User.id' => $id),
+		// 'recursive' => -1));
+		$products = $this->User->Product->find('all', array(
+			'conditions' => array('Product.user_id' => $id),
+			'recursive'=>-1
+			));
+		// debug($id);
+		$title_for_layout = 'Каталог';
+		$this->set(compact('products', 'title_for_layout', 'data'));
 	}
 
 	public function accessory(){
@@ -202,15 +204,15 @@ class UsersController extends AppController{
 		}
 
 		$data = $this->Auth->user();
+		// debug($data);
 		$id = $data['id'];
-		$data = $this->User->find('first', array(
-			'conditions' => array('User.id' => $id),
-		'recursive' => -1));
-		$accessory = $this->User->Category->find('first', array(
-			'conditions' => array('Category.user_id'=>$id)
-		));
+		$accessory = $this->User->Accessory->find('all', array(
+			'conditions' => array('Accessory.user_id' => $id),
+			'recursive'=>-1
+			));
 		// debug($category);
-		$this->set(compact('accessory'));
+		$title_for_layout = 'Аксессуары';
+		$this->set(compact('accessory', 'title_for_layout', 'data'));
 	}
 
 }

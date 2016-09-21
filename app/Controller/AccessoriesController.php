@@ -1,9 +1,9 @@
 <?php
 
-class ProductsController extends AppController{
+class AccessoriesController extends AppController{
 	public function admin_index(){
-		$data = $this->Product->find('all', array(
-			'order' => array('Product.id' => 'desc')
+		$data = $this->Accessory->find('all', array(
+			'order' => array('Accessory.id' => 'desc')
 		));
 		
 		$this->set(compact('data'));
@@ -11,13 +11,13 @@ class ProductsController extends AppController{
 
 	public function admin_add(){
 		if($this->request->is('post')){
-			$this->Product->create();
-			$data = $this->request->data['Product'];
+			$this->Accessory->create();
+			$data = $this->request->data['Accessory'];
 			// debug($data);
 			 if(!$data['img']['name']){
 			 	unset($data['img']);
 			}
-			if($this->Product->save($data)){
+			if($this->Accessory->save($data)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
 				// debug($data);
 				return $this->redirect($this->referer());
@@ -25,25 +25,25 @@ class ProductsController extends AppController{
 				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
 			}
 		}
-		$categories = $this->Product->Category->find('list');
+		$categories = $this->Accessory->Category->find('list');
 		$this->set(compact('categories'));
 	}
 
 	public function admin_edit($id){
-		if(is_null($id) || !(int)$id || !$this->Product->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Accessory->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->Product->findById($id);
+		$data = $this->Accessory->findById($id);
 		if(!$id){
 			throw new NotFoundException('Такой страницы нет...');
 		}
 		if($this->request->is(array('post', 'put'))){
-			$this->Product->id = $id;
-			$data1 = $this->request->data['Product'];
+			$this->Accessory->id = $id;
+			$data1 = $this->request->data['Accessory'];
 			if(empty($data1['img']['name']) || !$data1['img']['name']){
 				unset($data1['img']);
 			}
-			if($this->Product->save($data1)){
+			if($this->Accessory->save($data1)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
 				return $this->redirect($this->referer());
 			}else{
@@ -53,16 +53,16 @@ class ProductsController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			$categories = $this->Product->Category->find('list');
+			$categories = $this->Accessory->Category->find('list');
 			$this->set(compact('id', 'data', 'categories'));
 		}
 	}
 
 	public function admin_delete($id){
-		if (!$this->Product->exists($id)) {
+		if (!$this->Accessory->exists($id)) {
 			throw new NotFounddException('Такой статьи нет');
 		}
-		if($this->Product->delete($id)){
+		if($this->Accessory->delete($id)){
 			$this->Session->setFlash('Удалено', 'default', array(), 'good');
 		}else{
 			$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
@@ -73,8 +73,8 @@ class ProductsController extends AppController{
 	public function index(){
 		
 		$title_for_layout = 'Новости';
-		$data = $this->Product->find('all', array(
-			'order' => array('Product.id' => 'desc')
+		$data = $this->Accessory->find('all', array(
+			'order' => array('Accessory.id' => 'desc')
 		));
 		// debug($news);
 		$this->set(compact('data', 'title_for_layout'));
@@ -82,18 +82,16 @@ class ProductsController extends AppController{
 
 
 	public function view($id){
-		if(is_null($id) || !(int)$id || !$this->Product->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Accessory->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->Product->findById($id);
-		// debug($data);
-		// $user_id = $data['Category']['user_id'];
-		// $ui = $this->Product->Category->User->findById($user_id);
+		$data = $this->Accessory->findById($id);
+		$user_id = $data['Category']['user_id'];
+		$ui = $this->Accessory->Category->User->findById($user_id);
 
-		$title_for_layout = $data['Product']['title'];
-		$meta['keywords'] = $data['Product']['keywords'];
-		$meta['description'] = $data['Product']['description'];
-		$this->set(compact('data', 'title_for_layout', 'meta'));
+		$title_for_layout = $data['Accessory']['title'];
+
+		$this->set(compact('data', 'title_for_layout', 'ui'));
 	}
 
 	public function search(){
@@ -101,14 +99,11 @@ class ProductsController extends AppController{
 		if( is_null($search)){
 			return $this->set('search_res', 'Введите поисковый запрос');
 		}
-		$search_res = $this->Product->find('all', array(
-			'conditions' => array('Product.title LIKE' => '%'.$search.'%')
-		));
-		// debug($search_res);
-		$cities = $this->Product->User->City->find('all',array('recursive'=>-1));
-		// debug($city);
+		$search_res = $this->Accessory->find('all', array(
+			'conditions' => array('Accessory.title LIKE' => '%'.$search.'%')
+			));
 		$title_for_layout = 'Поиск';
-		$this->set(compact('search_res', 'title_for_layout','cities'));
+		$this->set(compact('search_res', 'title_for_layout'));
 		
 	}
 
@@ -120,27 +115,27 @@ class ProductsController extends AppController{
 		$user_data = $this->Auth->user();
 		$user_id = $user_data['id'];
 		
-		$product = $this->Product->findById($id);
-		if($product['Product']['user_id'] != $user_id){
+		$product = $this->Accessory->findById($id);
+		if($product['Accessory']['user_id'] != $user_id){
 			$this->Session->setFlash('Вы не имеете доступа к данному материалу', 'default', array(), 'bad');
 			return $this->redirect($this->referer('/users/category'));
 		}
 		
-		if(is_null($id) || !(int)$id || !$this->Product->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Accessory->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		if(is_null($id) || !(int)$id || !$this->Product->exists($id)){
+		if(is_null($id) || !(int)$id || !$this->Accessory->exists($id)){
 			throw new NotFoundException('Такой страницы нет...');
 		}
-		$data = $this->Product->findById($id);
+		$data = $this->Accessory->findById($id);
 	
 		if($this->request->is(array('post', 'put'))){
-			$this->Product->id = $id;
-			$data1 = $this->request->data['Product'];
+			$this->Accessory->id = $id;
+			$data1 = $this->request->data['Accessory'];
 			if(empty($data1['img']['name']) || !$data1['img']['name']){
 				unset($data1['img']);
 			}
-			if($this->Product->save($data1)){
+			if($this->Accessory->save($data1)){
 				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
 				return $this->redirect($this->referer());
 			}else{
@@ -150,7 +145,7 @@ class ProductsController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			//$categories = $this->Product->Category->find('list');
+			//$categories = $this->Accessory->Category->find('list');
 			$this->set(compact('id', 'data'));
 		}
 	}

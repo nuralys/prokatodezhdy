@@ -9,7 +9,7 @@
 </div>
     <div class="magazine">
         <div class="magazine-img">
-            <img src="/img/magazine.jpg" alt="">
+            <img src="/img/user/thumbs/<?=$user['User']['img']?>" alt="<?=$user['User']['title']?>">
         </div>   
         <a href="tel:<?=$user['User']['phone']?>" class="magazine-item magazine-item__phone">
             <?=$user['User']['phone']?>
@@ -39,6 +39,7 @@
         <div class="product-slider-content">
             <div class="product-slider-content__item active">
                 <div class="slider-product" >
+                 <?php if(!empty($products)): ?>
                 <?php foreach($products as $item): ?>
                     <div class="slider__item">
                         <div class="slider_item_img">
@@ -68,10 +69,14 @@
                           </div>
                     </div>
                     <?php endforeach ?>
+                    <?php else: ?>
+               	<p>К сожалению в данном разделе еще не добавлена информация</p>
+               <?php endif ?>
                 </div>
             </div>
             <div class="product-slider-content__item">
                 <div class="slider-product" >
+                <?php if(!empty($accessories)): ?>
                 <?php foreach($accessories as $item): ?>
                     <div class="slider__item">
                         <div class="slider_item_img">
@@ -98,6 +103,9 @@
                           </div>
                     </div>
                    <?php endforeach ?>
+               <?php else: ?>
+               	<p>К сожалению в данном разделе еще не добавлена информация</p>
+               <?php endif ?>
                 </div>
             </div>
         </div>
