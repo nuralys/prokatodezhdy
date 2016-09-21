@@ -121,7 +121,7 @@ jQuery(document).ready(function() {
  	if($(this).hasClass('active')){
  		$(this).removeClass('active');
 
- 		$(this).children('.city-list').addClass('active');
+ 		$(this).children('.city-list').removeClass('active');
  	}
  	else {
  		$(this).siblings().removeClass('active');

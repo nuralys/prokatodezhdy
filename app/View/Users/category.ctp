@@ -34,25 +34,27 @@
 			<p>Редактирование</p>
 			<p>Удаление</p>
  		</div>
-		<div class="edit-product_body">
+		<ul class="edit-product_body">
 			
 			<?php foreach($category['Product'] as $item): ?>
-				<div class="edit-product_item">
-					<div class="product-item product_img">
-						<img src="/img/product/thumbs/<?=$item['img']?>">
+				<li class="edit-product_item">
+					<div class="edit-product_item-container">	
+						<div class="product-item product_img">
+							<img src="/img/product/thumbs/<?=$item['img']?>">
+						</div>
+						<div class="product-item product_name">
+							<?=$item['title']?>
+						</div>
+						<div class="product-item edit">
+							<a href="/users/edit/<?=$item['id']?>" class="button edit">Редактировать</a>
+						</div>
+						<div class="product-item delete">
+							<?php echo $this->Form->postLink('Удалить', array('action' => 'admin_delete', $item['id']), array('confirm' => 'Подтвердите удаление')); ?>
+						</div>
 					</div>
-					<div class="product-item product_name">
-						<?=$item['title']?>
-					</div>
-					<div class="product-item edit">
-						<a href="/users/edit/<?=$item['id']?>" class="button edit">Редактировать</a>
-					</div>
-					<div class="product-item delete">
-						<?php echo $this->Form->postLink('Удалить', array('action' => 'admin_delete', $item['id']), array('confirm' => 'Подтвердите удаление')); ?>
-					</div>
-				</div>
+				</li>
 			<?php endforeach ?>
-		</div>
+		</ul>
  	</div>
 
 
