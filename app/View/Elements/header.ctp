@@ -1,12 +1,3 @@
-<ul class="links">
-                        <?php if(AuthComponent::user()) : ?>
-                            <li><a href="/" title="Log In">Сайт</a></li>
-                            <li><a href="/admin/" title="Log In">Админка</a></li>
-                            <li class=" last"><a href="/users/logout" title="Log In">Log Out</a></li>
-                        <?php else : ?>
-                            <li class=" last"><a href="/users/login" title="Log In">Log In</a></li>
-                        <?php endif; ?>
-                    </ul>
 <header>
     <div class="cr">
         <div class="header">

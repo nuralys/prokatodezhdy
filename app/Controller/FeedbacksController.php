@@ -9,18 +9,18 @@ class FeedbacksController extends AppController{
 		$this->set(compact('data'));
 	}
 
-	public function admin_add(){
+	public function add(){
 		if($this->request->is('post')){
 			$this->Feedback->create();
 			$data = $this->request->data['Feedback'];
 			// debug($data);
 			
 			if($this->Feedback->save($data)){
-				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				$this->Session->setFlash('Ваше сообщение отправлено. В ближайшее время с вами свяжется наш менеджер.', 'default', array(), 'good');
 				// debug($data);
 				return $this->redirect($this->referer());
 			}else{
-				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+				$this->Session->setFlash('К сожалению возникла ошибка', 'default', array(), 'bad');
 			}
 		}
 	}

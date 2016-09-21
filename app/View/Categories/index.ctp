@@ -2,10 +2,10 @@
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
     <a href="/" class="breadcrumbs-item__link">Главная   </a>  </li>
-    <li class="breadcrumbs-item"> Свадебные платья напрокат в Астане - prokatastana</li>
+    <li class="breadcrumbs-item"><?=$user['User']['title']?></li>
 </ul>
 <div class="big-slogan">
-   Свадебные платья напрокат в Астане - prokatastana
+   <?=$user['User']['h1']?>
 </div>
     <div class="magazine">
         <div class="magazine-img">

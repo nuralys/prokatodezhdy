@@ -34,8 +34,11 @@ class CategoriesController extends AppController{
 				'conditions' => array('Accessory.user_id'=>$user_id),
 				'recursive'=>-1
 			));
+			$title_for_layout = $user['User']['meta_title'];
+			$meta['keywords'] = $user['User']['keywords'];
+			$meta['description'] = $user['User']['description'];
+		return $this->set(compact('products', 'accessories', 'user', 'title_for_layout', 'meta'));
 		}
-		return $this->set(compact('products', 'accessories', 'user'));
 	}
 
 	public function view($alias){

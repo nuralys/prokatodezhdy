@@ -3,7 +3,7 @@
       <div class="enter-cabinet__title feedback-title">
           Обратная связь
       </div>  
-     <from class="enter-cabinet__form feedback__form" action="/feedbacks/add" method="post" accept-charset="utf-8">
+     <form class="enter-cabinet__form feedback__form" action="/feedbacks/add" method="post" accept-charset="utf-8">
          <div class="enter-input__container feedback-input__container login_icon"> 
               <input type="text" name="data[Feedback][title]" required="required" placeholder="Введите ваше имя" class="enter-input ">
          </div>    
@@ -14,6 +14,6 @@
          <button class="feedback-button button" type="submit">
             Отправить
          </button>
-     </from>
+     </form>
   </div>
 </div>
