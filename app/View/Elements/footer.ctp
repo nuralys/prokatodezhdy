@@ -7,7 +7,7 @@
             </a>
             <div class="header-slogan">Сервис проката одежды</div>
             <div class="footer-item">
-                <a href="" class="obratnaia-svaz button">
+                <a href="/feedback" class="obratnaia-svaz button">
                     Обратная связь
                 </a>
                 <a href="/users/cabinet" class="lichni-cab button">

@@ -2,6 +2,7 @@
 
 	Router::connect('/admin/users/:action', array('controller' => 'users','admin' => true));
 	Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
+	Router::connect('/feedback', array('controller' => 'feedbacks', 'action' => 'index'));
 	Router::connect('/page/*', array('controller' => 'pages', 'action' => 'index'));
 	Router::connect('/city/*', array('controller' => 'categories', 'action' => 'index'));
 	Router::connect('/category/*', array('controller' => 'categories', 'action' => 'view'));
