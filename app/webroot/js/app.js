@@ -23,7 +23,9 @@ jQuery(document).ready(function ($) {
         slidesToShow: 1,
         slidesToScroll: 1,
         pauseOnHover: false,
-
+        infinite:true,
+        centerMode: true,
+		adaptiveHeight: true,
          fade:true,
         prevArrow: '<span class="slick-prev slick-nav slick-nav--prev" aria-label="previous"></span>',
         nextArrow: '<span class="slick-next slick-nav slick-nav--next" aria-label="next"></span>'
@@ -83,12 +85,9 @@ jQuery(document).ready(function() { // Р В·Р В°Р С—РЎС“РЎРѓР
 });
 
 $(document).ready(function() {
-	var slide = $('.product-slider-content__item').height();
-	var slide_cong = $('.product-slider-content').height(slide);
-	var slide_item = $('.product-slider-content__item').width();
 	
 	if($('.product-slider-content__item').hasClass('active')){
-		$(this).css('left', 0);
+		$(this).css('margin-left', 0);
 
 		}else{
 			$('.product-slider-content__item').css('left', (slide_item));

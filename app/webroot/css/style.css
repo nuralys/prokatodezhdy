@@ -624,6 +624,7 @@ body {
 }
 .magazine {
   overflow: hidden;
+  float: left;
 }
 .magazine-img {
   margin-bottom: 15px;
@@ -673,7 +674,7 @@ body {
   text-decoration: none;
 }
 .content-product {
-  float: left;
+  float: right;
   width: 79.9%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -704,7 +705,7 @@ body {
   position: relative;
 }
 .product-slider-content__item {
-  left: -100%;
+  margin-left: -1200px;
   display: inline-block;
   float: left;
   width: 100%;
@@ -712,11 +713,13 @@ body {
 }
 .product-slider-content__item.active {
   display: block;
-  left: 0;
+  margin-left: 0;
+  position: relative;
 }
 .product-description {
   width: 55%;
   position: relative;
+  padding-bottom: 25px;
 }
 .product-description__name {
   font-size: 22px;
@@ -1263,9 +1266,6 @@ body {
   .edit-product {
     width: 100%;
   }
-  .content-product {
-    width: 100%;
-  }
   .cabinet-list__item {
     margin-right: 15px;
     margin-bottom: 25px;
@@ -1281,10 +1281,38 @@ body {
   .header-logo span {
     display: none;
   }
+  .content-product {
+    width: 75%;
+  }
+  .slider-product .slider__item.slick-slide {
+    -webkit-box-pack: inherit;
+    -webkit-justify-content: inherit;
+        -ms-flex-pack: inherit;
+            justify-content: inherit;
+  }
+  .slick-nav--next {
+    right: 55.5%;
+  }
+  .product-description {
+    width: 46%;
+    position: relative;
+  }
 }
 @media screen and (max-width: 960px) {
   .edit-product_head {
     display: none;
+  }
+  .product-slider-name-container {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
   }
   .edit-product_item {
     overflow: hidden;
@@ -1347,6 +1375,10 @@ body {
     -webkit-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
+  }
+  .o-nas,
+  .uslovia-prokata {
+    width: 100%;
   }
   .header-slogan {
     float: none;
