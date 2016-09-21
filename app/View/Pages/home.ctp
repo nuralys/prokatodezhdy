@@ -44,8 +44,8 @@
             <div class="city-list-head">
                 Выберите город
             </div>
-            <?php foreach($cats[0]['City'] as $item): ?>
-           <li class="city-list_item"><a href="/city/<?=$item['alias']?>/svadebnye-platjya" class="city-list_item-link"><?=$item['title']?></a></li>
+            <?php foreach($cat['sp'] as $item): ?>
+           <li class="city-list_item"><a href="/city/<?=$item['City']['alias']?>/<?=$item['Category']['alias']?>" class="city-list_item-link"><?=$item['City']['title']?></a></li>
             <?php endforeach ?>
         </ul>
     </li>
@@ -58,42 +58,36 @@
         <div class="city-list-head">
             Выберите город
         </div>
-           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+           <?php foreach($cat['vp'] as $item): ?>
+           <li class="city-list_item"><a href="/city/<?=$item['City']['alias']?>/<?=$item['Category']['alias']?>" class="city-list_item-link"><?=$item['City']['title']?></a></li>
+            <?php endforeach ?>
         </ul>
     </li>
 
     <li class="product_button-item product_button-item--muzhskie_kostium">
         <div class="product_button-name ">
-            мужские костюмы
+            Мужские костюмы
         </div>
         <ul class="city-list">
             <div class="city-list-head">
                 Выберите город
             </div>
-           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+           <?php foreach($cat['mk'] as $item): ?>
+           <li class="city-list_item"><a href="/city/<?=$item['City']['alias']?>/<?=$item['Category']['alias']?>" class="city-list_item-link"><?=$item['City']['title']?></a></li>
+            <?php endforeach ?>
         </ul>
     </li>
     <li class="product_button-item product_button-item--detskaia_odezhda">
         <div class="product_button-name ">
-            детская одежда
+            Детская одежда
         </div>
         <ul class="city-list">
             <div class="city-list-head">
                 Выберите город
             </div>
-           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+           <?php foreach($cat['do'] as $item): ?>
+           <li class="city-list_item"><a href="/city/<?=$item['City']['alias']?>/<?=$item['Category']['alias']?>" class="city-list_item-link"><?=$item['City']['title']?></a></li>
+            <?php endforeach ?>
         </ul>
     </li>
 </ul>

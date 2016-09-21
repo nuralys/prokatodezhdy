@@ -9,8 +9,30 @@ class PagesController extends AppController {
 		$page = $this->Page->findById(1);
 		// $this->Category->City->recursive = 0;
 		// $this->Category->recursive = 0;
-		$cats = $this->Category->find('all');
-		// debug($cats);
+		// $cats = $this->Category->find('first', array(
+		// 		'conditions' => array('Category.id'=>1),
+		// 		'recursive'=>-1));
+		$cat = array();
+		$cat['sp'] = $this->Category->User->find('all', array(
+			'conditions' => array('Category.id'=>1)
+		));
+		$cat['vp'] = $this->Category->User->find('all', array(
+			'conditions' => array('Category.id'=>2)
+		));
+		$cat['mk'] = $this->Category->User->find('all', array(
+			'conditions' => array('Category.id'=>3)
+		));
+		$cat['do'] = $this->Category->User->find('all', array(
+			'conditions' => array('Category.id'=>4)
+		));
+		// debug($cat_sp);
+			// $cat_id = $cat_id['Category']['id'];
+
+			// $city_id = $this->Category->User->City->find('first', array(
+			// 	'conditions' => array('City.alias'=>$this->request->params['pass'][0]),
+			// 	'recursive'=>-1));
+			// $city_id = $city_id['City']['id'];
+
 		$first_news = $this->News->find('first', array(
 			'order' => array('News.date' => 'desc')
 		));
@@ -23,7 +45,7 @@ class PagesController extends AppController {
 		$title_for_layout = $page['Page']['title'];
 		$meta['keywords'] = $page['Page']['keywords'];
 		$meta['description'] = $page['Page']['description'];
-		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news', 'cats'));
+		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news', 'cats', 'cat'));
 	}
 
 	public function admin_index(){

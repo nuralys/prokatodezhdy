@@ -18,5 +18,5 @@ echo $this->Form->create('Category', array('type' => 'file'));?>
 <?php
 echo $this->Form->input('title', array('label' => 'Название', 'class' => 'admin_input_f model '));
 echo $this->Form->input('img', array('label' => 'Изображение:', 'type' => 'file'));
-echo $this->Form->end('Создать');
+echo $this->Form->end('Редактировать');
 ?>

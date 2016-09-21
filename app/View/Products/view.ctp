@@ -9,16 +9,16 @@
 <aside class="side-bar">
     <div class="magazine">
         <div class="magazine-img">
-            <img src="/img/magazine.jpg" alt="">
+            <img src="/img/user/thumbs/<?=$data['User']['img']?>" alt="<?=$data['User']['title']?>">
         </div>   
-        <a href="tel:<?=$ui['User']['phone']?>" class="magazine-item magazine-item__phone">
-            <?=$ui['User']['phone']?>
+        <a href="tel:<?=$data['User']['phone']?>" class="magazine-item magazine-item__phone">
+            <?=$data['User']['phone']?>
         </a>   
         <div class="magazine-item magazine-item__address">
-           <?=$ui['User']['address']?>
+           <?=$data['User']['address']?>
         </div>
         <a href="" class="magazine-item magazine-item__maps">
-            <?=$ui['User']['map']?>
+            <?=$data['User']['map']?>
         </a>
     </div>
 </aside>
@@ -69,13 +69,13 @@
     <div class="hypercomment"></div>
     <div class="o-nas">
         <div class="service-index_title">О компании</div>
-        <p><?= $this->Text->truncate(strip_tags($ui['User']['about']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+        <p><?= $this->Text->truncate(strip_tags($data['User']['about']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
     </div>
     <div class="uslovia-prokata">
         <div class="uslovia-prokata__title title">
             Условия проката
         </div>
-        <p><?= $this->Text->truncate(strip_tags($ui['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+        <p><?= $this->Text->truncate(strip_tags($data['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
     </div>
     
 </div>

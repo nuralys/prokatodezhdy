@@ -1,5 +1,5 @@
  <div class="big-slogan">
-    <h1><?=$data['h1']?></h1>
+   <?=$data['h1']?>
 </div>
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
@@ -13,12 +13,12 @@
                 Общая информация
             </a>
         </li>
-        <li class="cabinet-list__item">
+        <li class="cabinet-list__item active">
             <a href="/users/catalog" class="cabinet-list__item--link">
                 Каталог
             </a>
         </li>
-        <li class="cabinet-list__item active">
+        <li class="cabinet-list__item">
             <a href="/users/accessory" class="cabinet-list__item--link">
                 Аксессуары
             </a>
@@ -26,10 +26,7 @@
     </ul>
 </aside>
 <div class="content-product">
- <?php if(!empty($accessory)): ?>
-
-
-
+ <?php if(!empty($products)): ?>
  	<div class="edit-product">
  		<div class="edit-product_head">
 			<p>Картинка  </p>
@@ -39,20 +36,20 @@
  		</div>
 		<ul class="edit-product_body">
 			
-			<?php foreach($accessory as $item): ?>
+			<?php foreach($products as $item): ?>
 				<li class="edit-product_item">
 					<div class="edit-product_item-container">	
 						<div class="product-item product_img">
-							<img src="/img/accessory/thumbs/<?=$item['Accessory']['img']?>">
+							<img src="/img/product/thumbs/<?=$item['Product']['img']?>">
 						</div>
 						<div class="product-item product_name">
-							<?=$item['Accessory']['title']?>
+							<?=$item['Product']['title']?>
 						</div>
 						<div class="product-item edit">
-							<a href="/accessories/edit/<?=$item['Accessory']['id']?>" class="button edit">Редактировать</a>
+							<a href="/products/edit/<?=$item['Product']['id']?>" class="button edit">Редактировать</a>
 						</div>
 						<div class="product-item delete">
-							<?php echo $this->Form->postLink('Удалить', array('controller'=>'accessories','action' => 'admin_delete', $item['Accessory']['id']), array('confirm' => 'Подтвердите удаление')); ?>
+							<?php echo $this->Form->postLink('Удалить', array('controller'=>'products','action' => 'delete', $item['Product']['id']), array('confirm' => 'Подтвердите удаление')); ?>
 						</div>
 					</div>
 				</li>
@@ -60,7 +57,8 @@
 		</ul>
  	</div>
 
-</div>
+
 <?php else: ?>
 <p>К сожалению в данном разделе еще не добавлена информация...</p>
 <?php endif ?>
+</div>

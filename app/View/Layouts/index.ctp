@@ -1,6 +1,6 @@
 <html>
     <head>
-    <title>Прокат одежды</title>
+    <title><?=$title_for_layout?></title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
     <meta name="keyword" content="">
     <meta name="description" content="">
