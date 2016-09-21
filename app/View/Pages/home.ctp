@@ -44,11 +44,9 @@
             <div class="city-list-head">
                 Выберите город
             </div>
-           <li class="city-list_item"><a href="" class="city-list_item-link">Астана</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Алматы</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link">Актау</a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li>
-            <li class="city-list_item"><a href="" class="city-list_item-link"></a></li> 
+            <?php foreach($cats[0]['City'] as $item): ?>
+           <li class="city-list_item"><a href="/city/<?=$item['alias']?>/svadebnye-platjya" class="city-list_item-link"><?=$item['title']?></a></li>
+            <?php endforeach ?>
         </ul>
     </li>
   

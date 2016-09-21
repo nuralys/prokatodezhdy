@@ -1,7 +1,7 @@
 <?php 
 
 class Product extends AppModel{
-	public $belongsTo = 'Category';
+	public $hasOne = 'Category';
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',

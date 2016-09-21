@@ -3,11 +3,14 @@
 
 class PagesController extends AppController {
 
-	public $uses = array('Page', 'News');
+	public $uses = array('Page', 'News', 'Category');
 
 	public function home(){
 		$page = $this->Page->findById(1);
-		// debug($page);
+		// $this->Category->City->recursive = 0;
+		// $this->Category->recursive = 0;
+		$cats = $this->Category->find('all');
+		// debug($cats);
 		$first_news = $this->News->find('first', array(
 			'order' => array('News.date' => 'desc')
 		));
@@ -20,7 +23,7 @@ class PagesController extends AppController {
 		$title_for_layout = $page['Page']['title'];
 		$meta['keywords'] = $page['Page']['keywords'];
 		$meta['description'] = $page['Page']['description'];
-		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news'));
+		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news', 'cats'));
 	}
 
 	public function admin_index(){

@@ -1,54 +1,117 @@
-<div class="content">
-	<div class="compani_item">
-		<h2 class="title">
-			Продукция
-		</h2>
-		<ul class="product">
-		<?php foreach($data as $item): ?>
-			<li class="product_list_item" >
-				<div class="product_img_first img fl_l">
-					<img src="/img/product/thumbs/<?=$item['Product']['img']?>" alt="<?=$item['Product']['title']?>">
-				</div>
-				<a href="/products/view/<?=$item['Product']['id']?>" class="product_title"><?=$item['Product']['title']?></a>
-				<div class="price_price">
-					Цена: <div class="price"> <?=$item['Product']['price']?> тг.</div>
-				</div>
-				<div class="product_des"><strong>Описание: </strong>
-<?= $this->Text->truncate(strip_tags($item['Product']['body']), 110, array('ellipsis' => '...', 'exact' => true)) ?>
-				 </div>
-				 <div class="basket_bottom">
-					<input type="hidden" name="category_id" class="id_product"value="<?=$item['Product']['id']?>">
-					<div class="mobile">
-					<a href="/products/view/<?=$item['Product']['id']?>"class="button fl_l" >Подробнее</a>
-					</div>
-					<div class="mobile">
-					<div class="col_vid">
-						<div class="number ">
-						    <span class="minus">-</span>
-						    <div class='item_count'/>1</div>
-						    <span class="plus">+</span>
-						</div>
-						<div class="vid_container">
-	                    	<div class="item_vid_count"><div class="item_vid">шт.
-							
-	                    	</div>
-	                    	<input type="hidden"class="item_2" value="sh"/></div>
-							<div class="item_vid_list">
-								<div class="item_vid_list_item">
-									кг.
-								</div>
-								<input type="hidden"class="item_2" value="kg"/>
-							</div>
-						</div>
-				    </div>
-				     </div>
-				     <div class="mobile">
-					<button  class="button add_item fl_r" data-id="<?=$item['Product']['id']?>">В корзину</button>
-					 </div>
-				</div>
-			</li>
-			<?php endforeach ?>
-			
-		</ul>
-	</div>
+<div class="big-slogan">
+   Свадебные платья напрокат в Астане - prokatastana
+</div>
+<ul class="breadcrumbs">
+    <li class="breadcrumbs-item">
+    <a href="/" class="breadcrumbs-item__link">Главная   </a>  </li>
+    <li class="breadcrumbs-item"> Свадебные платья напрокат в Астане - prokatastana</li>
+</ul>
+<aside class="side-bar">
+    <div class="magazine">
+        <div class="magazine-img">
+            <img src="/img/magazine.jpg" alt="">
+        </div>   
+        <a href="tel:<?=$ui['User']['phone']?>" class="magazine-item magazine-item__phone">
+            <?=$ui['User']['phone']?>
+        </a>   
+        <div class="magazine-item magazine-item__address">
+           <?=$ui['User']['address']?>
+        </div>
+        <a href="" class="magazine-item magazine-item__maps">
+            <?=$ui['User']['map']?>
+        </a>
+    </div>
+</aside>
+<div class="content-product">
+    <div class="product-slider">
+        <div class="product-slider-name-container">
+            <div class="product-slider-name button">
+                Свадебные платья
+            </div>
+            <div class="product-slider-name button product-slider-name--accessories">
+                Аксессуары
+            </div>
+             <div class="product-description__podelitsia-soc-seti">
+                  Мы в социальных сетях:
+                    
+              </div>  
+        </div>
+        <div class="product-slider-content">
+            <div class="product-slider-content__item active">
+                <div class="slider-product" >
+                <?php foreach($data['Product'] as $item): ?>
+                    <div class="slider__item">
+                        <div class="slider_item_img">
+                            <img src="/img/product/thumbs/<?=$item['img']?>" alt="<?=$item['title']?>">
+                        </div>
+                        <div class="product-description">
+                              <div class="product-description__name">
+                                  <?=$item['title']?>
+                              </div>
+                              <?=$item['body']?>
+                              
+                              <div class="product-description__item product-price">
+                                  Цена (за сутки): <span><?=$item['price_day']?> KZT</span> 
+                              </div>
+                              <div class="product-description__item product-price">
+                                  Цена (от 5 суток): <span><?=$item['price_lot_of_days']?> KZT</span> 
+                              </div>
+                              <div class="product-description__item product-size">
+                                 Размеры:  <?=$item['size']?>
+                              </div>
+                              <div class="product-description__item product-bron">
+                                 Бронь:  <?=$item['book']?> KZT
+                              </div>
+                              <div class="product-description__podelitsia">
+                                  Расскажите о нас друзьям
+                              </div>
+                          </div>
+                    </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+            <div class="product-slider-content__item">
+                <div class="slider-product" >
+                <?php foreach($data['Accessory'] as $item): ?>
+                    <div class="slider__item">
+                        <div class="slider_item_img">
+                            <img src="/img/accessory/thumbs/<?=$item['img']?>" alt="<?=$item['title']?>">
+                        </div>
+                        <div class="product-description">
+                              <div class="product-description__name">
+                                  <?=$item['title']?>
+                              </div>
+                              <?=$item['body']?>
+                             
+                              <div class="product-description__item product-price">
+                                  Цена: <span><?=$item['price']?> KZT</span> 
+                              </div>
+                              <div class="product-description__item product-size">
+                                 Размеры:  <?=$item['size']?>
+                              </div>
+                              <div class="product-description__item product-bron">
+                                 Бронь:  <?=$item['book']?> KZT
+                              </div>
+                              <div class="product-description__podelitsia">
+                                  Расскажите о нас друзьям
+                              </div>
+                          </div>
+                    </div>
+                   <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hypercomment"></div>
+    <div class="o-nas">
+        <div class="service-index_title">О компании</div>
+        <p><?= $this->Text->truncate(strip_tags($ui['User']['about']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+    </div>
+    <div class="uslovia-prokata">
+        <div class="uslovia-prokata__title title">
+            Условия проката
+        </div>
+        <p><?= $this->Text->truncate(strip_tags($ui['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
+    </div>
+    
 </div>

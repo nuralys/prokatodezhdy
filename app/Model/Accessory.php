@@ -2,6 +2,7 @@
 
 class Accessory extends AppModel{
 	public $belongsTo = 'Category';
+	// public $recursive = -1;
 	public $validate = array(
 		'title' => array(
 			'rule' => 'notEmpty',

@@ -3,12 +3,12 @@
 	Router::connect('/admin/users/:action', array('controller' => 'users','admin' => true));
 	Router::connect('/admin', array('controller' => 'pages', 'action' => 'index', 'admin' => true));
 	Router::connect('/page/*', array('controller' => 'pages', 'action' => 'index'));
-	Router::connect('/city/*', array('controller' => 'cities', 'action' => 'index'));
+	Router::connect('/city/*', array('controller' => 'categories', 'action' => 'index'));
 	Router::connect('/category/*', array('controller' => 'categories', 'action' => 'view'));
 	Router::connect('/product/*', array('controller' => 'products', 'action' => 'view'));
 	Router::connect('/search/*', array('controller' => 'products', 'action' => 'search'));
-	Router::connect('/news/*', array('controller' => 'news', 'action' => 'view'));
 	Router::connect('/news', array('controller' => 'news', 'action' => 'index'));
+	Router::connect('/news/*', array('controller' => 'news', 'action' => 'view'));
 	Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
