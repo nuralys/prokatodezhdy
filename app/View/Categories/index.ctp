@@ -1,12 +1,12 @@
-<div class="big-slogan">
-   Свадебные платья напрокат в Астане - prokatastana
-</div>
+
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
     <a href="/" class="breadcrumbs-item__link">Главная   </a>  </li>
     <li class="breadcrumbs-item"> Свадебные платья напрокат в Астане - prokatastana</li>
 </ul>
-<aside class="side-bar">
+<div class="big-slogan">
+   Свадебные платья напрокат в Астане - prokatastana
+</div>
     <div class="magazine">
         <div class="magazine-img">
             <img src="/img/user/thumbs/<?=$user['User']['img']?>" alt="<?=$user['User']['title']?>">
@@ -21,7 +21,7 @@
             <?=$user['User']['map']?>
         </a>
     </div>
-</aside>
+
 <div class="content-product">
     <div class="product-slider">
         <div class="product-slider-name-container">
