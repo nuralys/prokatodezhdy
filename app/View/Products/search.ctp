@@ -9,11 +9,7 @@
 					<img src="/img/product/thumbs/<?=$item['Product']['img']?>">
 				</div>
 				<a href="/product/<?=$item['Product']['id']?>" class="search-name">
-					<?php foreach($cities as $city): ?>
-						<?php if($city['City']['id'] == $item['User']['city_id']): ?>
-							<?php echo $city['City']['alias'] ?>
-						<?php endif ?>
-					<?php endforeach ?>
+					
 					<?=$item['Product']['title']?>
 				</a>
 			</div>

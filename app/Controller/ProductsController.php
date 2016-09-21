@@ -112,6 +112,29 @@ class ProductsController extends AppController{
 		
 	}
 
+	public function add(){
+		if(!$this->Auth->user()){
+			return $this->redirect('/users/login');
+		}
+		if($this->request->is('post')){
+			$this->Product->create();
+			$data = $this->request->data['Product'];
+			// debug($data);
+			 if(!$data['img']['name']){
+			 	unset($data['img']);
+			}
+			if($this->Product->save($data)){
+				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				// debug($data);
+				return $this->redirect($this->referer());
+			}else{
+				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+			}
+		}
+		// $categories = $this->Product->Category->find('list');
+		// $this->set(compact('categories'));
+	}
+
 	public function edit($id){
 		if(!$this->Auth->user()){
 			return $this->redirect('/users/login');
