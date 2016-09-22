@@ -53,8 +53,7 @@ class AccessoriesController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			$categories = $this->Accessory->Category->find('list');
-			$this->set(compact('id', 'data', 'categories'));
+			$this->set(compact('id', 'data'));
 		}
 	}
 

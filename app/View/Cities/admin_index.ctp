@@ -1,5 +1,5 @@
 <h1>Города</h1>
-<a href="/admin/categories/add">Добавить новый город</a>
+<a href="/admin/cities/add">Добавить новый город</a>
 <?php //debug($data)?>
  <?php if(!empty($data)): ?>
 <table>
@@ -15,7 +15,7 @@
  		<td><?=$key?></td>
  		
  		<td><?=$item?></td>
- 		<td><a href="/admin/categories/edit/<?=$key?>">Редактировать</a> |
+ 		<td><a href="/admin/cities/edit/<?=$key?>">Редактировать</a> |
 			<?php echo $this->Form->postLink('Удалить', array('action' => 'admin_delete', $key), array('confirm' => 'Подтвердите удаление')); ?></td>
 	</tr>
 	<?php endforeach ?>

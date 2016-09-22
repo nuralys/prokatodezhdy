@@ -92,8 +92,7 @@ class CategoriesController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			$c_list = $this->Category->find('list');
-			$this->set(compact('id', 'data', 'c_list'));
+			$this->set(compact('id', 'data'));
 		}
 	}
 

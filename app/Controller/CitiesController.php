@@ -76,8 +76,7 @@ class CitiesController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			$c_list = $this->City->find('list');
-			$this->set(compact('id', 'data', 'c_list'));
+			$this->set(compact('id', 'data'));
 		}
 	}
 
