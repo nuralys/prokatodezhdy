@@ -31,10 +31,15 @@
             <div class="product-slider-name button product-slider-name--accessories">
                 Аксессуары
             </div>
-             <div class="product-description__podelitsia-soc-seti">
-                  Мы в социальных сетях:
-                    
-              </div>  
+              <div class="product-description__podelitsia-soc-seti">
+                Мы в социальных сетях: 
+                <a href="" class=" soc-seti_item insta">
+                    <img src="/img/instagram.svg" alt="">
+                </a> 
+                <a href="" class="soc-seti_item vk">
+                    <img src="/img/vk.svg" alt="">
+                </a>
+            </div>  
         </div>
         <div class="product-slider-content">
             <div class="product-slider-content__item active">

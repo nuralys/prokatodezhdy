@@ -32,7 +32,13 @@
                 Аксессуары
             </div>
             <div class="product-description__podelitsia-soc-seti">
-                Мы в социальных сетях:
+                Мы в социальных сетях: 
+                <a href="" class="insta">
+                    <img src="img/instagram.svg" alt="">
+                </a> 
+                <a href="" class="vk">
+                    <img src="img/vk.svg" alt="">
+                </a>
             </div> 
         </div>
         <div class="product-slider-content">
