@@ -12,10 +12,10 @@ class CategoriesController extends AppController{
 	public function index(){
 		if(isset($this->request->params['pass'][1]) && !empty($this->request->params['pass'][1])){
 			
-			$cat_id = $this->Category->find('first', array(
+			$cat = $this->Category->find('first', array(
 				'conditions' => array('Category.alias'=>$this->request->params['pass'][1]),
 				'recursive'=>-1));
-			$cat_id = $cat_id['Category']['id'];
+			$cat_id = $cat['Category']['id'];
 
 			$city_id = $this->Category->User->City->find('first', array(
 				'conditions' => array('City.alias'=>$this->request->params['pass'][0]),
@@ -37,7 +37,7 @@ class CategoriesController extends AppController{
 			$title_for_layout = $user['User']['meta_title'];
 			$meta['keywords'] = $user['User']['keywords'];
 			$meta['description'] = $user['User']['description'];
-		return $this->set(compact('products', 'accessories', 'user', 'title_for_layout', 'meta'));
+		return $this->set(compact('products', 'accessories', 'user', 'title_for_layout', 'meta', 'cat'));
 		}
 	}
 

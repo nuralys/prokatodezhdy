@@ -1,5 +1,5 @@
 <h1>Категории</h1>
-<a href="/admin/categories/add">Добавить новую категорию</a>
+<!-- <a href="/admin/categories/add">Добавить новую категорию</a> -->
 <?php //debug($data)?>
  <?php if(!empty($data)): ?>
 <table>

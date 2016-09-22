@@ -106,6 +106,27 @@ class AccessoriesController extends AppController{
 		
 	}
 
+	public function add(){
+		if(!$this->Auth->user()){
+			return $this->redirect('/users/login');
+		}
+		if($this->request->is('post')){
+			$this->Accessory->create();
+			$data = $this->request->data['Accessory'];
+			// debug($data);
+			 if(!$data['img']['name']){
+			 	unset($data['img']);
+			}
+			if($this->Accessory->save($data)){
+				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				// debug($data);
+				return $this->redirect($this->referer());
+			}else{
+				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+			}
+		}
+	}
+
 	public function edit($id){
 		if(!$this->Auth->user()){
 			return $this->redirect('/users/login');

@@ -4,7 +4,7 @@
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
     <a href="/" class="breadcrumbs-item__link">Главная</a></li>
-    <li class="breadcrumbs-item"><?=$data['User']['title']?></li>
+    <li class="breadcrumbs-item">Кабинет</li>
 </ul>
 <aside class="side-bar">
     <ul class="cabinet-list">
