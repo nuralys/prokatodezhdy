@@ -1,5 +1,5 @@
 <h1>Список пользователей</h1>
-<a href="/admin/news/add">Добавить нового пользователя</a>
+<a href="/admin/users/add">Добавить нового пользователя</a>
 <?php //debug($data)?>
  <?php if(!empty($data)): ?>
 <table>

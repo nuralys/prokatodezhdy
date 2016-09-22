@@ -7,7 +7,6 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		123<?php echo $cakeDescription ?>:
 		<?php echo $this->fetch('title'); ?>
 	</title>
 	<?php
@@ -52,11 +51,14 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			<div class="top_menu_item"> 
 				<a href="/admin/slides">Слайды</a>
 			</div>
-			<div class="top_menu_item"> 
-				<a href="/admin/partners">Партнеры</a>
-			</div>
 			<div class="top_menu_item ">
 				<a href="/admin/pages">Страницы</a>
+			</div>
+			<div class="top_menu_item ">
+				<a href="/admin/cities">Города</a>
+			</div>
+			<div class="top_menu_item ">
+				<a href="/admin/users">Пользователи</a>
 			</div>
 			<div class="top_menu_item ">
 				<a href="/users/logout">Выход</a>

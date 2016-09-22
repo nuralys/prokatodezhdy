@@ -3,7 +3,7 @@
 
 class PagesController extends AppController {
 
-	public $uses = array('Page', 'News', 'Category');
+	public $uses = array('Page', 'News', 'Category', 'Slide');
 
 	public function home(){
 		$page = $this->Page->findById(1);
@@ -25,13 +25,6 @@ class PagesController extends AppController {
 		$cat['do'] = $this->Category->User->find('all', array(
 			'conditions' => array('Category.id'=>4)
 		));
-		// debug($cat_sp);
-			// $cat_id = $cat_id['Category']['id'];
-
-			// $city_id = $this->Category->User->City->find('first', array(
-			// 	'conditions' => array('City.alias'=>$this->request->params['pass'][0]),
-			// 	'recursive'=>-1));
-			// $city_id = $city_id['City']['id'];
 
 		$first_news = $this->News->find('first', array(
 			'order' => array('News.date' => 'desc')
@@ -42,10 +35,11 @@ class PagesController extends AppController {
 		));
 		$shift_other_news = array_shift($other_news);
 		
+		$slides = $this->Slide->find('all');
 		$title_for_layout = $page['Page']['title'];
 		$meta['keywords'] = $page['Page']['keywords'];
 		$meta['description'] = $page['Page']['description'];
-		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news', 'cats', 'cat'));
+		$this->set(compact('title_for_layout', 'page', 'meta', 'first_news', 'other_news', 'cats', 'cat', 'slides'));
 	}
 
 	public function admin_index(){

@@ -53,8 +53,8 @@ class ProductsController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			$categories = $this->Product->Category->find('list');
-			$this->set(compact('id', 'data', 'categories'));
+			$title_for_layout = 'Редактирование';
+			$this->set(compact('id', 'data', 'title_for_layout'));
 		}
 	}
 

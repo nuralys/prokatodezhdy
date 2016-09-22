@@ -38,7 +38,7 @@
         <!-- <a href="/city/astana/svadebnye_platjya">
         </a> -->
         <div class="product_button-name ">
-                свадебные платья
+                Свадебные платья
         </div>  
         <ul class="city-list">
             <div class="city-list-head">
@@ -52,7 +52,7 @@
   
     <li class="product_button-item product_button-item--vechernie_platia">
         <div class="product_button-name ">
-            вечерние платья
+            Вечерние платья
         </div>
         <ul class="city-list">
         <div class="city-list-head">
@@ -127,22 +127,14 @@
     </div>
 </div>
 <div class="service-index">
-    <div class="slider" >
+    <div class="slider">
+        <?php foreach($slides as $item): ?>
         <div class="slider__item">
             <div class="slider_item_img">
-                <img src="img/slider.jpg" alt="">
+                <img src="img/slider/thumbs/<?=$item['Slide']['img']?>" alt="<?=$item['Slide']['title']?>">
             </div>
         </div>
-        <div class="slider__item">
-            <div class="slider_item_img">
-                <img src="img/slider.jpg" alt="">
-            </div>
-        </div>
-        <div class="slider__item">
-            <div class="slider_item_img">
-                <img src="img/slider.jpg" alt="">
-            </div>
-        </div>
+       <?php endforeach ?>
     </div>
     <div class="service-index_text">
         <div class="service-index_title">О сервисе</div>

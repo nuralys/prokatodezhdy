@@ -94,7 +94,7 @@ class UsersController extends AppController{
 		}
 	}
 
-	public function admin_reg(){
+	public function admin_add(){
 		if($this->request->is('post')){
 			// debug($this->request->data);
 			$this->User->create();
@@ -106,11 +106,14 @@ class UsersController extends AppController{
 			}else{
 				// $this->Session->setFlash(__('Ошибка при добавлении пользователя'));
 				$this->Session->setFlash('Ошибка регистрации.', 'default', array(), 'bad');
-				$this->redirect('/admin/users/reg');
+				$this->redirect('/admin/users/add');
 			}
 		}
-		$this->set('title_for_layout', 'Добавление пользователя');
-		$this->set('users', $this->User->find('list'));
+		$title_for_layout = 'Добавление пользователя';
+		$category_list = $this->User->Category->find('list');
+		$city_list = $this->User->City->find('list');
+		$users = $this->User->find('list');
+		$this->set(compact('title_for_layout', 'users', 'category_list', 'city_list'));
 	}
 
 	public function admin_edit($id){
@@ -124,6 +127,9 @@ class UsersController extends AppController{
 		if($this->request->is(array('post', 'put'))){
 			$this->User->id = $id;
 			$data1 = $this->request->data['User'];
+			unset($data1['password']);
+			unset($data1['password_repeat']);
+			
 			if(empty($data1['img']['name']) || !$data1['img']['name']){
 				unset($data1['img']);
 			}
@@ -137,11 +143,51 @@ class UsersController extends AppController{
 		//Заполняем данные в форме
 		if(!$this->request->data){
 			$this->request->data = $data;
-			
-			$this->set(compact('id', 'data'));
+			$title_for_layout = 'Редактирование';
+			$category_list = $this->User->Category->find('list');
+			$city_list = $this->User->City->find('list');
+			// debug($category_list);
+			$this->set(compact('id', 'data', 'category_list', 'city_list', 'title_for_layout'));
 		}
 	}
-
+	public function admin_pswedit($id){
+		if(is_null($id) || !(int)$id || !$this->User->exists($id)){
+			throw new NotFoundException('Такой страницы нет...');
+		}
+		$data = $this->User->findById($id);
+		if(!$id){
+			throw new NotFoundException('Такой страницы нет...');
+		}
+		if($this->request->is(array('post', 'put'))){
+			$this->User->id = $id;
+			$data1 = $this->request->data['User'];
+			if(empty($data1['password']) || !$data1['password']){
+				unset($data1['password']);
+			}
+			if(empty($data1['password_repeat']) || !$data1['password_repeat']){
+				unset($data1['password_repeat']);
+			}
+			
+			if(empty($data1['img']['name']) || !$data1['img']['name']){
+				unset($data1['img']);
+			}
+			if($this->User->save($data1)){
+				$this->Session->setFlash('Сохранено', 'default', array(), 'good');
+				return $this->redirect($this->referer());
+			}else{
+				$this->Session->setFlash('Ошибка', 'default', array(), 'bad');
+			}
+		}
+		//Заполняем данные в форме
+		if(!$this->request->data){
+			$this->request->data = $data;
+			$title_for_layout = 'Редактирование пароля';
+			$category_list = $this->User->Category->find('list');
+			$city_list = $this->User->City->find('list');
+			// debug($category_list);
+			$this->set(compact('id', 'data', 'category_list', 'city_list', 'title_for_layout'));
+		}
+	}
 	
 
 	public function cabinet(){

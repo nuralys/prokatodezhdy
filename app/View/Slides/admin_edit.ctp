@@ -35,9 +35,6 @@ if(!empty($data['Slide']['img'])){?>
 	</script>
 <input type="text" name="data[Slide][imgsource]" class="imgsource" value="" />
 <input type="text" name="data[Slide][imgcrop]" class="imgcrop" value="" />
-<?
-echo $this->Form->input('link', array('label' => 'Ссылка'));
-?>
 </div>
 <?
 echo $this->Form->end('Редактировать');

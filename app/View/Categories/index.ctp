@@ -54,9 +54,11 @@
                               <div class="product-description__item product-price">
                                   Цена (за сутки): <span><?=$item['Product']['price_day']?> KZT</span> 
                               </div>
+                              <?php if($item['Product']['price_lot_of_days']): ?>
                               <div class="product-description__item product-price">
                                   Цена (от 5 суток): <span><?=$item['Product']['price_lot_of_days']?> KZT</span> 
                               </div>
+                         	 <?php endif ?>
                               <div class="product-description__item product-size">
                                  Размеры:  <?=$item['Product']['size']?>
                               </div>
@@ -89,14 +91,23 @@
                               <?=$item['Accessory']['body']?>
                              
                               <div class="product-description__item product-price">
-                                  Цена: <span><?=$item['Accessory']['price']?> KZT</span> 
+                                  Цена (за сутки): <span><?=$item['Accessory']['price_day']?> KZT</span> 
                               </div>
+                              <?php if($item['Accessory']['price_lot_of_days']): ?>
+                              <div class="product-description__item product-price">
+                                  Цена (от 5 суток): <span><?=$item['Accessory']['price_lot_of_days']?> KZT</span> 
+                              </div>
+                         	 <?php endif ?>
+                         	 <?php if($item['Accessory']['size']): ?>
                               <div class="product-description__item product-size">
                                  Размеры:  <?=$item['Accessory']['size']?>
                               </div>
+                              <?php endif ?>
+                              <?php if($item['Accessory']['book']): ?>
                               <div class="product-description__item product-bron">
                                  Бронь:  <?=$item['Accessory']['book']?> KZT
                               </div>
+                              <?php endif ?>
                               <div class="product-description__podelitsia">
                                   Расскажите о нас друзьям
                               </div>

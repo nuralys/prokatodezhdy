@@ -4,7 +4,7 @@
 <?php 
 
 echo $this->Form->create('Slide', array('type' => 'file'));
-echo $this->Form->input('title', array('label' => 'Название', 'class' => 'admin_input_f model '));
+echo $this->Form->input('title', array('label' => 'Название', 'class' => ''));
 ?>
 <div id="cropContainerEyecandy"></div>
 
@@ -34,8 +34,6 @@ echo $this->Form->input('title', array('label' => 'Название', 'class' =>
 	</script>
 <input type="text" required="required" name="data[Slide][imgsource]" class="imgsource" value="" />
 <input type="text" required="required" name="data[Slide][imgcrop]" class="imgcrop" value="" />
-<?
-echo $this->Form->input('link', array('label' => 'Ссылка'));?>
 <?php
 echo $this->Form->end('Создать');
 ?>
