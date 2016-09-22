@@ -28,7 +28,7 @@
 <div class="content-cabinet content-product ">
     <div class="general-information">
         <div class="general-information__title">
-          Редактировать
+          Добавить продукт
        </div>
         <?php 
       echo $this->Form->create('Accessory', array('type' => 'file'));

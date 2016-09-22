@@ -165,9 +165,9 @@
 .slick-nav {
     position: absolute;
     z-index: 99;
-       top: 70px;
+    top: 40%;
     cursor: pointer;
-    background:#ffc054;
+    background: #ffc054;
     width: 22px;
     height: 99px;
 }

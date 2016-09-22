@@ -25,12 +25,13 @@
         </li>
     </ul>
 </aside>
-<div class="content-product">
+
  <?php if(!empty($accessory)): ?>
 
 
 
  	<div class="edit-product">
+ 		<a href="" class="button add">Добавить товар</a>
  		<div class="edit-product_head">
 			<p>Картинка  </p>
 			<p> Название товара	</p>
@@ -60,7 +61,7 @@
 		</ul>
  	</div>
 
-</div>
+
 <?php else: ?>
 <p>К сожалению в данном разделе еще не добавлена информация...</p>
 <?php endif ?>
