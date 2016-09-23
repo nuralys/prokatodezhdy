@@ -20,6 +20,9 @@
         <a href="" class="magazine-item magazine-item__maps">
             <?=$user['User']['map']?>
         </a>
+        <a href="#modal1" class="open_modal magazine-item magazine-item__maps">
+            показать на карте
+        </a>
     </div>
 <div class="content-product">
     <div class="product-slider">
@@ -143,5 +146,11 @@
         </div>
         <p><?= $this->Text->truncate(strip_tags($user['User']['conditions']), 1000, array('ellipsis' => '...', 'exact' => true)) ?></p>
     </div>
-    
+    <div id="modal1" class="modal_div"> <!-- скрытый див с уникальным id = modal1 -->
+    <span class="modal_close"></span>
+      <div class="modal-product">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=zxU0OHt6SH9B7zxTKSUZIdBHym__Vve1&amp;width=100%&amp;height=400&amp;lang=ru_RU&amp;sourceType=constructor&amp;scroll=true"></script>
+      </div>
+    </div>
+    <div id="overlay"></div>
 </div>
