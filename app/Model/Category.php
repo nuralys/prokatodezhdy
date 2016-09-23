@@ -11,6 +11,10 @@ class Category extends AppModel {
 	        'title' => array(
 	            'rule' => 'notEmpty',
 	            'message' => 'Введите название'
+	        ),
+	        'alias' => array(
+	            'rule' => 'notEmpty',
+	            'message' => 'Введите alias'
 	        )
 	    );
 }

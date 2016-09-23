@@ -1,7 +1,7 @@
 
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
-    <a href="/" class="breadcrumbs-item__link">Главная   </a>  </li>
+    <a href="/" class="breadcrumbs-item__link">Главная</a></li>
     <li class="breadcrumbs-item"><?=$user['User']['title']?></li>
 </ul>
 <div class="big-slogan">
@@ -21,25 +21,31 @@
             <?=$user['User']['map']?>
         </a>
     </div>
-
 <div class="content-product">
     <div class="product-slider">
         <div class="product-slider-name-container">
             <div class="product-slider-name button">
-                Свадебные платья
+                <?php echo $cat['Category']['title'] ?>
             </div>
             <div class="product-slider-name button product-slider-name--accessories">
                 Аксессуары
             </div>
+            <?php if($user['User']['vk'] || $user['User']['instagram']): ?>
               <div class="product-description__podelitsia-soc-seti">
                 Мы в социальных сетях: 
-                <a href="" class=" soc-seti_item insta">
-                    <img src="/img/instagram.svg" alt="">
+                <?php if($user['User']['instagram']): ?>
+                <a target="_blank" href="https://www.instagram.com/<?=$user['User']['instagram']?>" class=" soc-seti_item insta">
+                    <img src="/img/instagram.svg" alt="instagram">
                 </a> 
-                <a href="" class="soc-seti_item vk">
-                    <img src="/img/vk.svg" alt="">
+                <?php endif ?>
+                <?php if($user['User']['vk']): ?>
+                <a target="_blank" href="https://vk.com/<?=$user['User']['vk']?>" class="soc-seti_item vk">
+                    <img src="/img/vk.svg" alt="vk">
                 </a>
-            </div>  
+                <?php endif ?>
+            </div>
+            <?php endif ?>
+
         </div>
         <div class="product-slider-content">
             <div class="product-slider-content__item active">

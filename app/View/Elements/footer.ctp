@@ -10,12 +10,14 @@
                 <a href="/feedback" class="obratnaia-svaz button">
                     Обратная связь
                 </a>
+                <?php if($admin=='false'): ?>
                 <?php if(AuthComponent::user()) : ?>
+                <a href="/users/cabinet" class="lichni-cab button">Личный кабинет</a>
         <a href="/users/logout" class="lichni-cab button">Выход</a>
     <?php else : ?>
         <a href="/users/cabinet" class="lichni-cab button">Личный кабинет</a>
     <?php endif; ?>
-
+<?php endif ?>
             </div>
             <div class="copy-developed-container">
                 <p class="copyright">Copyright 2016. Все права защишены</p>

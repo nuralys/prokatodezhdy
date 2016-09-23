@@ -4,7 +4,8 @@
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
     <a href="/" class="breadcrumbs-item__link">Главная</a></li>
-    <li class="breadcrumbs-item"><?=$data['title']?></li>
+    <li class="breadcrumbs-item"><a href="/users/cabinet" class="breadcrumbs-item__link">Кабинет</a></li>
+    <li class="breadcrumbs-item">Аксессуары</li>
 </ul>
 <aside class="side-bar">
     <ul class="cabinet-list">
@@ -31,7 +32,7 @@
 
 
  	<div class="edit-product">
- 		<a href="" class="button add">Добавить товар</a>
+ 		<a href="/accessories/add" class="button add">Добавить товар</a>
  		<div class="edit-product_head">
 			<p>Картинка  </p>
 			<p> Название товара	</p>

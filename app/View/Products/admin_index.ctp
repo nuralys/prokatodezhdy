@@ -1,5 +1,4 @@
 <h1>Список продукции</h1>
-<a href="/admin/products/add">Добавить новый материал</a>
 <?php //debug($data)?>
  <?php if(!empty($data)): ?>
 <table>

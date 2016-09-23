@@ -40,10 +40,13 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 	<div class="cr">
 		<nav class="top_menu_admin">
 			<div class="top_menu_item ">
-				<a href="/admin/categories">Категории</a>
+				<a href="/admin/users">Пользователи</a>
 			</div>
 			<div class="top_menu_item">
-				<a href="/admin/products">Продукция</a>
+				<a href="/admin/products">Каталог</a>
+			</div>
+			<div class="top_menu_item">
+				<a href="/admin/accessories">Аксессуары</a>
 			</div>
 			<div class="top_menu_item"> 
 				<a href="/admin/news">Новости</a>
@@ -58,8 +61,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 				<a href="/admin/cities">Города</a>
 			</div>
 			<div class="top_menu_item ">
-				<a href="/admin/users">Пользователи</a>
+				<a href="/admin/categories">Категории</a>
 			</div>
+			
 			<div class="top_menu_item ">
 				<a href="/users/logout">Выход</a>
 			</div>

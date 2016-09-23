@@ -4,7 +4,9 @@
 <ul class="breadcrumbs">
     <li class="breadcrumbs-item">
     <a href="/" class="breadcrumbs-item__link">Главная</a></li>
-    <li class="breadcrumbs-item"><?=$data['User']['title']?></li>
+    <li class="breadcrumbs-item"><a href="/users/cabinet" class="breadcrumbs-item__link">Кабинет</a></li>
+    <li class="breadcrumbs-item"><a href="/users/accessory" class="breadcrumbs-item__link">Аксессуары</a></li>
+    <li class="breadcrumbs-item">Новый аксессуар</li>
 </ul>
 <aside class="side-bar">
     <ul class="cabinet-list">
